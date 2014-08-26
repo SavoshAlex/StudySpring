@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+    xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd" 
+    default-init-method="init" 
+    default-destroy-method="destroy">
+
+
+    <bean id="someBean" class="java.lang.Object"/>
+    
+    <bean class="com.example.studyspring.InitCollectionsExcample">
+        <property name="someProps">
+            <props>
+                <prop key="propA">A</prop>
+                <prop key="propB">B</prop>
+                <prop key="propC">C</prop>
+            </props>
+        </property>
+        <property name="someList">
+            <list>
+                <value>A</value>
+                <value>B</value>
+                <value>C</value>
+                <ref bean="someBean"/>
+            </list>
+        </property>
+        <property name="someMap">
+            <map>
+                <entry key="keyA" value="A"/>
+                <entry key="keyB" value="B"/>
+                <entry key="keyO" >
+                    <bean class="java.lang.Object"/>
+                </entry>
+            </map>
+        </property>
+        <property name="someSet">
+            <set>
+                <value>A</value>
+                <ref bean="someBean"/>
+            </set>
+        </property>
+        
+    </bean>
+    
+
+
+</beans>
